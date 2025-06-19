@@ -1,0 +1,40 @@
+package customtextbreak
+
+import (
+	"strings"
+	"testing"
+)
+
+func TestThaiTextBreak(t *testing.T) {
+	tbk := NewThaiTextBreak()
+	err := tbk.Load("./thaidict/lexitron.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	tokens, err := tbk.BreakTextToToken("สวัสดีครับ")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(tokens) != 2 {
+		t.Fatal("tokens is empty")
+	}
+}
+
+func TestThaiTextBreak2(t *testing.T) {
+	tbk := NewThaiTextBreak()
+	err := tbk.Load("./thaidict/lexitron.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := "มานน มา มา"
+	tokens, err := tbk.BreakTextToToken(text)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(tokens) != 5 {
+		t.Fatal("tokens is not 5")
+	}
+	if strings.Join(tokens, "") != text {
+		t.Fatal("tokens not match")
+	}
+}

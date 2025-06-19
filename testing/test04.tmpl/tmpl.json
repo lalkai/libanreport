@@ -1,0 +1,120 @@
+{
+  "Fonts": [
+    {
+      "Name": "loma",
+      "TTF": "loma.ttf"
+    }
+  ],
+  "Fields": [
+    {
+      "Key": "car_model",
+      "Style": "normal",
+      "Font": null,
+      "Size": null,
+      "PageNum": 1,
+      "X": 20,
+      "Y": 103,
+      "W": 41,
+      "H": 5,
+      "Align": 16
+    },
+    {
+      "Key": "car_register",
+      "Style": "normal",
+      "Font": null,
+      "Size": null,
+      "PageNum": 1,
+      "X": 63,
+      "Y": 103,
+      "W": 21,
+      "H": 5,
+      "Align": 16
+    },
+    {
+      "Key": "car_year",
+      "Style": "normal",
+      "Font": null,
+      "Size": null,
+      "PageNum": 1,
+      "X": 116,
+      "Y": 103,
+      "W": 15,
+      "H": 5,
+      "Align": 16
+    },
+    {
+      "Key": "deductible",
+      "Style": "normal2",
+      "Font": null,
+      "Size": null,
+      "PageNum": 1,
+      "X": 86,
+      "Y": 132.5,
+      "W": 28,
+      "H": 5,
+      "Align": 34
+    }
+  ],
+  "Styles": [
+    {
+      "Name": "normal",
+      "Define": {
+        "Key": null,
+        "Style": null,
+        "Font": "loma",
+        "Size": 11,
+        "PageNum": null,
+        "X": 10,
+        "Y": null,
+        "W": 100,
+        "H": 4,
+        "Align": 40
+      }
+    },
+    {
+      "Name": "normal2",
+      "Define": {
+        "Key": null,
+        "Style": null,
+        "Font": "loma",
+        "Size": 8,
+        "PageNum": null,
+        "X": null,
+        "Y": 86.5,
+        "W": 23,
+        "H": 4,
+        "Align": 17
+      }
+    },
+    {
+      "Name": "money",
+      "Define": {
+        "Key": null,
+        "Style": null,
+        "Font": "loma",
+        "Size": 13,
+        "PageNum": null,
+        "X": 149,
+        "Y": null,
+        "W": 43,
+        "H": 5.5,
+        "Align": 34
+      }
+    },
+    {
+      "Name": "mark",
+      "Define": {
+        "Key": null,
+        "Style": null,
+        "Font": "loma",
+        "Size": 11,
+        "PageNum": null,
+        "X": null,
+        "Y": 122.2,
+        "W": 3.5,
+        "H": 3.5,
+        "Align": 48
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+github.com/armon/go-radix v1.0.0 h1:F4z6KzEeeQIMeLFa97iZU6vupzoecKdU5TX24SNppXI=
+github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
+github.com/oneplus1000/errord v0.0.2 h1:Qiz3jc/YjGTj2EvngdbTvmiXXoUkEJA/L6BZWcrCkMk=
+github.com/oneplus1000/errord v0.0.2/go.mod h1:gyz4BK+Vq8XoKKVNtU8guNmaRtKejMdg5luwRU5Snr0=
+github.com/signintech/pdft v0.6.1 h1:H6OAjxsGyYYQVP31o8WtPA52GBrshMRu/H6SZsDJi5A=
+github.com/signintech/pdft v0.6.1/go.mod h1:rQHl1GS7anncQpDQQw+RTMsYBKbxPBzpYRylf6egiI4=
