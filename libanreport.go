@@ -1,6 +1,7 @@
 package libanreport
 
 import (
+	"bytes"
 	"embed"
 	"encoding/json"
 	"errors"
@@ -169,6 +170,18 @@ func ReadTmplDir(path string) (Tmpl, error) {
 		tmplJSON:       &tmplJson,
 		tmplPDFPath:    tmplPdfPath,
 	}, nil
+}
+
+func RemoveSpecialRune(txt string) string {
+	const noBreakSpace = '\u00A0'
+	var buff bytes.Buffer
+	for _, r := range txt {
+		if r == noBreakSpace {
+			continue
+		}
+		buff.WriteRune(r)
+	}
+	return buff.String()
 }
 
 // --- private ---
