@@ -8,4 +8,4 @@ require (
 	github.com/signintech/pdft v0.6.2
 )
 
-//replace github.com/signintech/pdft v0.6.2 => /Users/oneplus/Code/Play/pdft
+replace github.com/signintech/pdft v0.6.2 => /Users/oneplus/Code/Play/pdft

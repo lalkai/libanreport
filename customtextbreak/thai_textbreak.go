@@ -44,6 +44,10 @@ func (t ThaiTextBreak) breakTextToToken(text string) ([]string, error) {
 		tokens = append(tokens, found)
 		i += len(found)
 	}
+	if len(notfound) > 0 {
+		tokens = append(tokens, string(notfound))
+		notfound = nil
+	}
 	return tokens, nil
 }
 

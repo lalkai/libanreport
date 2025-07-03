@@ -38,8 +38,8 @@ func testGenPdf() error {
 		return errord.Errorf("error reading fontoverride.json: %w", err)
 	}
 
-	data := []DataJSON{
-		{Type: 1, Key: "cusLicence", Val: "ผค 5555 นครศรีธรรมราช", WrapTextType: WrapTextTypeNewLine},
+	data := RemoveSpecialRuneInDataJSONSlice([]DataJSON{
+		{Type: 1, Key: "cusLicence", Val: "ผค 555 กท", WrapTextType: WrapTextTypeNewLine},
 		{Type: 1, Key: "cusAddress", Val: "1259/67 หมู่บ้านเสนากรีนวิลล์ รามอินทรา ถนนพระยาสุเรนทร์ แขวงบางชัน เขตคลองสามวา กรุงเทพฯ 10510", WrapTextType: WrapTextTypeNewLine},
 		//{Type: 1, Key: "c1Company", Val: "บริษัท เมืองไทยประกันภัยป่า จำกัด (มหาชน)"},
 		//{Type: 1, Key: "c1Garage", Val: "ป. 1 ซ่อมห้าง"},
@@ -49,7 +49,7 @@ func testGenPdf() error {
 		//{Type: 1, Key: "cusYear", Val: "2022"},
 		//{Type: 1, Key: "cusExpire", Val: "30 มิถุนายน 2568"},
 		//{Type: 1, Key: "cusChassis", Val: "MR0AB3GS702576035"},
-	}
+	})
 
 	f, err := os.OpenFile(outputPath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 	if err != nil {
