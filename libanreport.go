@@ -174,6 +174,16 @@ func ReadTmplDir(path string) (Tmpl, error) {
 	}, nil
 }
 
+func RemoveSpecialRuneInDataJSONSlice(src []DataJSON) []DataJSON {
+	dest := make([]DataJSON, len(src))
+	for i, s := range src {
+		if s.Type == TypeText {
+			dest[i].Val = RemoveSpecialRune(s.Val)
+		}
+	}
+	return dest
+}
+
 func RemoveSpecialRune(txt string) string {
 	const carriageReturn = '\u000D'
 	const lineFeed = '\u000A'
