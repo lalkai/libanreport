@@ -7,3 +7,5 @@ require (
 	github.com/oneplus1000/errord v0.0.2
 	github.com/signintech/pdft v0.6.1
 )
+
+replace github.com/signintech/pdft v0.6.1 => /Users/oneplus/Code/Play/pdft

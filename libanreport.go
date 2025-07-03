@@ -5,6 +5,7 @@ import (
 	"embed"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -99,9 +100,10 @@ func GenPdf(
 			rightPair uint,
 			pairVal int16,
 		) int16 {
-
 			for _, kern := range fontoverride.Kernings {
 				if isInRune(leftRune, kern.Lefts) && isInRune(rightRune, kern.Rights) {
+					fmt.Printf("leftRune: %c, rightRune: %c kern.Val=%d\n",
+						leftRune, rightRune, kern.Val)
 					pairVal = kern.Val
 					lastPairVal = kern.Val
 					lastK = k
@@ -173,10 +175,11 @@ func ReadTmplDir(path string) (Tmpl, error) {
 }
 
 func RemoveSpecialRune(txt string) string {
-	const noBreakSpace = '\u00A0'
+	const carriageReturn = '\u000D'
+	const lineFeed = '\u000A'
 	var buff bytes.Buffer
 	for _, r := range txt {
-		if r == noBreakSpace {
+		if r == carriageReturn || r == lineFeed {
 			continue
 		}
 		buff.WriteRune(r)
