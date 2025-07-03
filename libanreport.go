@@ -5,7 +5,6 @@ import (
 	"embed"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -49,6 +48,15 @@ func GenPdf(
 			bindFieldInfo(styleDefine, &finfo)
 		}
 		bindFieldInfo(&f, &finfo)
+
+		//get IsWrapText from datas (if exists)
+		datasIdx, ok := findDataJSONIndexByKey(datas, *f.Key)
+		if ok {
+			if datas[datasIdx].WrapTextType == WrapTextTypeNewLine {
+				finfo.IsWrapText = true
+			}
+		}
+
 		finfos = append(finfos, finfo)
 	}
 
@@ -102,8 +110,6 @@ func GenPdf(
 		) int16 {
 			for _, kern := range fontoverride.Kernings {
 				if isInRune(leftRune, kern.Lefts) && isInRune(rightRune, kern.Rights) {
-					fmt.Printf("leftRune: %c, rightRune: %c kern.Val=%d\n",
-						leftRune, rightRune, kern.Val)
 					pairVal = kern.Val
 					lastPairVal = kern.Val
 					lastK = k
@@ -140,6 +146,15 @@ func GenPdf(
 	}
 
 	return nil
+}
+
+func findDataJSONIndexByKey(datas []DataJSON, key string) (int, bool) {
+	for i, d := range datas {
+		if d.Key == key {
+			return i, true
+		}
+	}
+	return -1, false
 }
 
 // path ไปยัง fontoverride.json
@@ -179,6 +194,7 @@ func RemoveSpecialRuneInDataJSONSlice(src []DataJSON) []DataJSON {
 	for i, s := range src {
 		dest[i].Type = s.Type
 		dest[i].Key = s.Key
+		dest[i].WrapTextType = s.WrapTextType
 		if s.Type == TypeText {
 			dest[i].Val = RemoveSpecialRune(s.Val)
 		} else {

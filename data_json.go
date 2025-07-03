@@ -1,9 +1,13 @@
 package libanreport
 
+const WrapTextTypeNone = 0b00
+const WrapTextTypeNewLine = 0b01
+
 type DataJSON struct {
-	Type int
-	Key  string
-	Val  string
+	Type         int
+	Key          string
+	Val          string
+	WrapTextType int
 }
 
 //func removeSpecialFromDataJSON(refDatas []DataJSON) {

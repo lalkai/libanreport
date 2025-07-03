@@ -39,7 +39,7 @@ func testGenPdf() error {
 	}
 
 	data := []DataJSON{
-		{Type: 1, Key: "cusName", Val: "คุณพิจิตรา แน่นพิมาย ลื้อ กี่ ล้ำ ล่ำ ติ่ง ป่า ป้า นั้น"},
+		{Type: 1, Key: "cusName", Val: "คุณพิจิตรา แน่นพิมาย ลื้อ กี่ ล้ำ ล่ำ ติ่ง ป่า ป้า นั้น", WrapTextType: WrapTextTypeNewLine},
 		//{Type: 1, Key: "cusAddress", Val: "1259/67 หมู่บ้านเสนากรีนวิลล์ รามอินทรา ถนนพระยาสุเรนทร์ แขวงบางชัน เขตคลองสามวา กรุงเทพฯ 10510"},
 		//{Type: 1, Key: "c1Company", Val: "บริษัท เมืองไทยประกันภัยป่า จำกัด (มหาชน)"},
 		//{Type: 1, Key: "c1Garage", Val: "ป. 1 ซ่อมห้าง"},
