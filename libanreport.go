@@ -177,8 +177,12 @@ func ReadTmplDir(path string) (Tmpl, error) {
 func RemoveSpecialRuneInDataJSONSlice(src []DataJSON) []DataJSON {
 	dest := make([]DataJSON, len(src))
 	for i, s := range src {
+		dest[i].Type = s.Type
+		dest[i].Key = s.Key
 		if s.Type == TypeText {
 			dest[i].Val = RemoveSpecialRune(s.Val)
+		} else {
+			dest[i].Val = s.Val // TypeIMG ไม่ต้องลบ
 		}
 	}
 	return dest
