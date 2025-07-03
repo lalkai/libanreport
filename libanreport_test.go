@@ -40,7 +40,7 @@ func testGenPdf() error {
 
 	data := RemoveSpecialRuneInDataJSONSlice([]DataJSON{
 		{Type: 1, Key: "cusLicence", Val: "ผค 555 กท", WrapTextType: WrapTextTypeNewLine},
-		{Type: 1, Key: "cusAddress", Val: "1259/67 หมู่บ้านเสนากรีนวิลล์ รามอินทรา ถนนพระยาสุเรนทร์ แขวงบางชัน เขตคลองสามวา กรุงเทพฯ 10510", WrapTextType: WrapTextTypeNewLine},
+		{Type: 1, Key: "cusAddress", Val: "1259/67 หมู่บ้านเสนากรีนวิลล์ รามอินทรา ถนนพระยาสุเรนทร์ แขวงบางชัน เขตคลองสามวา กรุงเทพฯ 10510 หมู่บ้านเสนากรีนวิลล์ รามอินทรา ถนนพระยาสุเรนทร์ แขวงบางชัน เขตคลองสามวา กรุงเทพฯ 10510", WrapTextType: WrapTextTypeNewLine},
 		//{Type: 1, Key: "c1Company", Val: "บริษัท เมืองไทยประกันภัยป่า จำกัด (มหาชน)"},
 		//{Type: 1, Key: "c1Garage", Val: "ป. 1 ซ่อมห้าง"},
 		//{Type: 1, Key: "cusModel", Val: "FORTUNER 2022"},
