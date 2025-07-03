@@ -38,3 +38,22 @@ func TestThaiTextBreak2(t *testing.T) {
 		t.Fatal("tokens not match")
 	}
 }
+
+func TestThaiTextBreak3(t *testing.T) {
+	tbk := NewThaiTextBreak()
+	err := tbk.Load("./thaidict/lexitron.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := "ผค 5555 นครราชสีมา"
+	tokens, err := tbk.BreakTextToToken(text)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(tokens) != 4 {
+		t.Fatal("tokens is not 4")
+	}
+	if strings.Join(tokens, "") != text {
+		t.Fatal("tokens not match")
+	}
+}
