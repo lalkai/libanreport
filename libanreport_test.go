@@ -95,11 +95,11 @@ func testGenPdfWithEmbed() error {
 	}
 
 	outputPath := filepath.Join("testing_output", "test04_embed.pdf")
-	tmpl, err := ReadTmplDirFromEmbed(testingFS, "testing/test04.tmpl")
+	tmpl, err := ReadTmplDirFromEmbedFS(testingFS, "testing/test04.tmpl")
 	if err != nil {
 		return errord.Errorf("error reading template directory from embed: %w", err)
 	}
-	fontOverrides, err := ReadfontsJSONFromEmbed(testingFS, "testing/fontoverride.json")
+	fontOverrides, err := ReadfontsJSONFromEmbedFS(testingFS, "testing/fontoverride.json")
 	if err != nil {
 		return errord.Errorf("error reading fontoverride.json from embed: %w", err)
 	}

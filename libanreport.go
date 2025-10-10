@@ -197,7 +197,7 @@ func ReadfontsJSON(path string) ([]FontOverrideJSON, error) {
 	return fontoverrides, nil
 }
 
-func ReadfontsJSONFromEmbed(embedFS embed.FS, embedPath string) ([]FontOverrideJSON, error) {
+func ReadfontsJSONFromEmbedFS(embedFS embed.FS, embedPath string) ([]FontOverrideJSON, error) {
 	d, err := embedFS.ReadFile(embedPath)
 	if err != nil {
 		return nil, ErrFileNotFound
@@ -228,12 +228,12 @@ func ReadTmplDir(path string) (Tmpl, error) {
 	}, nil
 }
 
-func ReadTmplDirFromEmbed(embedFS embed.FS, embedPath string) (Tmpl, error) {
+func ReadTmplDirFromEmbedFS(embedFS embed.FS, embedPath string) (Tmpl, error) {
 	folderName := filepath.Base(embedPath)
 	tmplJsonPath := filepath.Join(embedPath, "tmpl.json")
 	tmplPdfPath := filepath.Join(embedPath, "tmpl.pdf")
 
-	tmplJson, err := parseTmplJSONFromEmbed(embedFS, tmplJsonPath)
+	tmplJson, err := parseTmplJSONFromEmbedFS(embedFS, tmplJsonPath)
 	if err != nil {
 		return Tmpl{}, errord.Errorf("error reading tmpl.json from embed: %w", err)
 	}
@@ -290,7 +290,7 @@ func parseTmplJSON(path string) (TmplJSON, error) {
 	return objs, nil
 }
 
-func parseTmplJSONFromEmbed(embedFS embed.FS, path string) (TmplJSON, error) {
+func parseTmplJSONFromEmbedFS(embedFS embed.FS, path string) (TmplJSON, error) {
 	data, err := embedFS.ReadFile(path)
 	if err != nil {
 		return TmplJSON{}, err
